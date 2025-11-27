@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Personal Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep slate */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7c3aed; /* purple */
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1100px;
+      color-scheme: dark;
+      font-family: 'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071024);color:#e6eef8}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav a.cta{background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:32px;align-items:center}
+    .hero-card{background:var(--card);padding:26px;border-radius:20px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    h1{margin:0;font-size:clamp(26px,4vw,40px);line-height:1.02}
+    p.lead{color:var(--muted);margin-top:10px}
+
+    .buttons{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:10px 16px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);border:none;color:white;font-weight:700}
+
+    .profile{display:flex;flex-direction:column;gap:14px;align-items:center;padding:20px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+    .avatar{width:160px;height:160px;border-radius:20px;background:linear-gradient(135deg,#334155,#071024);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700}
+    .meta{display:flex;gap:12px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .card{background:var(--card);padding:18px;border-radius:14px}
+
+    footer{margin-top:36px;color:var(--muted);font-size:14px;text-align:center;padding:18px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(1,1fr)}
+      nav{display:none}
+    }
+
+    /* simple form styles */
+    form{display:grid;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:inherit}
+    textarea{min-height:110px}
+    .muted{color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">YN</div>
+        <div>
+          <div style="font-weight:700">Your Name</div>
+          <div class="muted" style="font-size:13px">Designer — Developer — Creator</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#hire">Hire me</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="hero-card">
+        <h1>Hi — I build clean, useful web experiences.</h1>
+        <p class="lead">This is a single-file starter site you can edit. Replace the text, swap images, and change colors easily. It's responsive and fast.</p>
+
+        <div class="buttons">
+          <button class="btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in touch</button>
+          <button class="btn" onclick="downloadResume()">Download resume</button>
+        </div>
+
+        <div class="grid" style="margin-top:22px">
+          <div class="card">
+            <strong>Featured Project</strong>
+            <div class="muted">A short description of a project or case study with a call to action.</div>
+          </div>
+          <div class="card">
+            <strong>Skills</strong>
+            <div class="muted">HTML · CSS · JS · React · Design</div>
+          </div>
+          <div class="card">
+            <strong>Availability</strong>
+            <div class="muted">Open to freelance & full-time</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="profile">
+        <div class="avatar">YN</div>
+        <div style="text-align:center">
+          <div style="font-weight:700">Your Name</div>
+          <div class="muted">Based in Your City</div>
+        </div>
+
+        <div class="meta">
+          <div class="muted">Email: you@domain.com</div>
+        </div>
+      </aside>
+    </main>
+
+    <section id="about" style="margin-top:28px">
+      <div class="hero-card">
+        <h2>About</h2>
+        <p class="muted">Write 2–3 sentences about yourself. Mention what you build and who you help. Keep it concise.</p>
+      </div>
+    </section>
+
+    <section id="work" style="margin-top:18px">
+      <div class="hero-card">
+        <h2>Selected Work</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px">
+          <div class="card">
+            <strong>Project A</strong>
+            <div class="muted">Short description & tools used.</div>
+          </div>
+          <div class="card">
+            <strong>Project B</strong>
+            <div class="muted">Short description & tools used.</div>
+          </div>
+          <div class="card">
+            <strong>Project C</strong>
+            <div class="muted">Short description & tools used.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <div class="hero-card">
+        <h2>Contact</h2>
+        <form onsubmit="event.preventDefault();alert('Message sent — this is a demo. Replace with real backend.')">
+          <input placeholder="Your name" required />
+          <input type="email" placeholder="Your email" required />
+          <textarea placeholder="Your message" required></textarea>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn primary" type="submit">Send message</button>
+            <div class="muted">Or email: you@domain.com</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      Built with ❤️ — Edit this file to make it yours.
+    </footer>
+  </div>
+
+  <script>
+    function downloadResume(){
+      // demo: generate a small text file as "resume" — replace with real file link
+      const blob = new Blob(["Resume for Your Name - replace with PDF"],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'resume.txt'; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
+
